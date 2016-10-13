@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cognito')
-    .controller('loginController',
+    .controller('signupController',
     [
         '$rootScope',
         '$scope',
@@ -13,12 +13,9 @@ angular.module('cognito')
                   $state,
                   cognitoService) {
         	 $scope.data = {};
-        	 $scope.login = function() {
-        		 var ret = cognitoService.login($scope.data.username, $scope.data.password);        		 
+        	 $scope.signup = function() {
+        		 var ret = cognitoService.signup($scope.data);        		 
         	     $state.go('survey');
-        	  };
-        	  $scope.signup = function() {
-        		  $state.go('signup');
         	  };
         }
     ]);

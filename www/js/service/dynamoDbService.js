@@ -7,13 +7,13 @@ angular.module('cognito')
 
         function($rootScope,$http) {
 
-            this.readData = function login(userName) {
+            this.readData = function readData(userName) {
             	return $http.get('data/survey.json').success(function(data) {
             			return data;
             	});                
             };
 
-            this.writeData = function signup (userName,postData) {
+            this.writeData = function writeData (postData) {
                 console.log('postData',postData);
                 return true;
             };

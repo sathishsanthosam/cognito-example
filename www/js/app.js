@@ -35,7 +35,18 @@ angular.module('cognito', ['ionic'])
         url: '/survey',
         templateUrl: 'templates/survey.html',
         controller: 'surveyController'
-    });
+    })
+    .state('signup', {
+        url: '/signup',
+        templateUrl: 'templates/signup.html',
+        controller: 'signupController'
+    })
+    .state('newSurvey', {
+        url: '/newSurvey',
+        templateUrl: 'templates/newSurvey.html',
+        controller: 'newSurveyController'
+    })
+    ;
 
 // if none of the above states are matched, use this as the fallback
 $urlRouterProvider.otherwise('/login');

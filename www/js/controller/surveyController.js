@@ -14,6 +14,9 @@ angular.module('cognito')
                   dynamoDbService) {
         	 dynamoDbService.readData("").then(function(sucess){
         		 $scope.datas = sucess.data.survey;
-        	 });        	 
+        	 });  
+        	 $scope.add = function() {
+       		  $state.go('newSurvey');
+       	  };
         }
     ]);
