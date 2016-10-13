@@ -1,0 +1,14 @@
+<ion-view view-title="Survey">
+    <ion-content>
+        <div class="row header">
+          <div class="col">Survey Timestamp</div>
+          <div class="col">Survey Type</div>
+          <div class="col">Survey Answer</div>
+        </div>
+        <div class="row" ng-repeat="data in datas">
+          <div class="col">{{data.timestamp}}</div>
+          <div class="col">{{data.type}}</div>
+          <div class="col">LK {{data.ansewr}}</div>          
+        </div>
+    </ion-content>
+  </ion-view>
