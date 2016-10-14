@@ -9,21 +9,29 @@ Steps to Run
 
 # Launching cognito-example on Ubuntu 
 
+Prerequisites
+
+1. sudo apt-get install nodejs
+
+2. sudo apt install nodejs-legacy
+
+3. sudo apt-get install npm
+
+4. sudo npm install -g cordova
+
+5. sudo npm install -g ionic
+
+
 Steps to Install and Run
 
 1. git clone https://github.com/sathishsanthosam/cognito-example.git
 
 2. cd cognito-example/
 
-3. sudo apt-get install nodejs
+3. npm install
 
-4. sudo apt install nodejs-legacy
+4. bower install
 
-5. sudo apt-get install npm
-
-6. sudo npm install -g cordova
-
-7. sudo npm install -g ionic
 
 Web 
 
