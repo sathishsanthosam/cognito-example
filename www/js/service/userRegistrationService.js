@@ -15,11 +15,11 @@ angular.module('cognito')
             	    
             	    var dataEmail = {
             	        Name : 'email',
-            	        Value : 'sathish.santhosam@gmail.com'
+            	        Value : postData.email
             	    };
             	    var dataPhoneNumber = {
             	        Name : 'phone_number',
-            	        Value : '1234567890'
+            	        Value :  postData.phone
             	    };
             	    var attributeEmail = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
             	    //var attributePhoneNumber = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataPhoneNumber);
@@ -27,7 +27,7 @@ angular.module('cognito')
             	    attributeList.push(attributeEmail);
             	    //attributeList.push(attributePhoneNumber);
 
-            	    userPool.signUp(postData.username, postData.password, attributeList, null, function(err, result){
+            	    userPool.signUp(postData.name, postData.password, attributeList, null, function(err, result){
             	        if (err) {
             	        	callback(false,err);
             	        }

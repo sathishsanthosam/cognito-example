@@ -2,32 +2,22 @@
     <ion-content>
      	<div class="list list-inset">
           <label class="item item-input">
-          	  <span class="input-label">Username</span>
-              <input type="text"  ng-model="data.username">
+          	  <span class="input-label">Name</span>
+              <input type="text" ng-model="data.name">
+          </label>
+          <label class="item item-input">
+          	  <span class="input-label">Email</span>
+              <input type="text" ng-model="data.email">
+          </label>
+          <label class="item item-input">
+          	  <span class="input-label">Phone</span>
+              <input type="text" ng-model="data.phone">
           </label>
           <label class="item item-input">
           	  <span class="input-label">Password</span>
-              <input type="password"  ng-model="data.password">
+              <input type="password" ng-model="data.password">
           </label>
-          <label class="item item-input">
-          	  <span class="input-label">Name</span>
-              <input type="password"  ng-model="data.name">
-          </label>
-          <label class="item item-input">
-          	  <span class="input-label">Age</span>
-              <input type="password"  ng-model="data.age">
-          </label>
-	      <label class="item item-input item-select">
-		    <div class="input-label">
-		      Gender
-		    </div>
-		    <select>
-		      <option>Male</option>
-		      <option >Female</option>		      
-		    </select>
-		  </label>
-    			
-      </div> 
+      </div>
       
       <button class="button button-block button-calm" ng-click="signup()">Signup</button>
     </ion-content>
