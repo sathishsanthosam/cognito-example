@@ -6,16 +6,23 @@ angular.module('cognito')
         '$rootScope',
         '$scope',
         '$state',
-        'cognitoService',
+        'loginService',
 
         function ($rootScope,
                   $scope,
                   $state,
-                  cognitoService) {
+                  loginService) {
         	 $scope.data = {};
         	 $scope.login = function() {
-        		 var ret = cognitoService.login($scope.data.username, $scope.data.password);        		 
-        	     $state.go('survey');
+        		 var ret = loginService.login($scope.data.username, $scope.data.password,function(success,result){
+        			 if(success){
+        				 console.log(result);
+        				 $state.go('survey'); 
+        			 }else{
+        				 console.log(result);
+        			 }
+        		 });    		 
+        	     //$state.go('survey');
         	  };
         	  $scope.signup = function() {
         		  $state.go('signup');

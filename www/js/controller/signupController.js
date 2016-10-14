@@ -6,16 +6,22 @@ angular.module('cognito')
         '$rootScope',
         '$scope',
         '$state',
-        'cognitoService',
+        'userRegistrationService',
 
         function ($rootScope,
                   $scope,
                   $state,
-                  cognitoService) {
+                  userRegistrationService) {
         	 $scope.data = {};
         	 $scope.signup = function() {
-        		 var ret = cognitoService.signup($scope.data);        		 
-        	     $state.go('survey');
+        		 userRegistrationService.signup($scope.data,function(success,result){
+        			 if(success){
+        				 console.log(result);
+        				 $state.go('survey'); 
+        			 }else{
+        				 console.log(result);
+        			 }
+        		 });        	     
         	  };
         }
     ]);
