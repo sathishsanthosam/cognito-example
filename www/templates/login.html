@@ -1,16 +1,28 @@
-<ion-view view-title="Login">
+<ion-view class="login-styles">
+    <ion-nav-title>
+        <h2 style="color: darkblue;">Login</h2>
+    </ion-nav-title>
     <ion-content>
-     	<div class="list list-inset">
-          <label class="item item-input">
-          	  <span class="input-label">Username</span>
-              <input type="text"  ng-model="data.username">
-          </label>
-          <label class="item item-input">
-          	  <span class="input-label">Password</span>
-              <input type="password"  ng-model="data.password">
-          </label>
-      </div>
-      <button class="button button-block button-calm" ng-click="login()">Login</button>
-      <button class="button button-block button-calm" ng-click="signup()">Signup</button>
+        <div class="list list-inset" >
+            <label class="item item-input input-align">
+                <i class="icon ion-person placeholder-icon"></i>
+                <input type="text" placeholder="User Name" ng-model="data.username">
+            </label>
+
+            <label class="item item-input input-align">
+                <i class="icon ion-locked placeholder-icon"></i>
+                <input type="password" placeholder="Password" ng-model="data.password">
+            </label>
+
+            <button class="button button-block button-calm button-align"
+                    ng-click="login()">
+                <i class="icon icon ion-unlocked button-icon-align"></i>Login</button>
+
+            <button class="button button-block button-calm button-align"
+                    ng-click="signup()">
+                <i class="icon icon ion-person-add button-icon-align"></i>Signup</button>
+        </div>
+
+
     </ion-content>
   </ion-view>
