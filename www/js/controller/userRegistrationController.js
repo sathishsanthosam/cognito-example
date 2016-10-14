@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cognito')
-    .controller('signupController',
+    .controller('userRegistrationController',
     [
         '$rootScope',
         '$scope',
@@ -13,8 +13,8 @@ angular.module('cognito')
                   $state,
                   userRegistrationService) {
         	 $scope.data = {};
-        	 $scope.signup = function() {
-        		 userRegistrationService.signup($scope.data,function(success,result){
+        	 $scope.onRegister = function() {
+        		 userRegistrationService.onRegister($scope.data,function(success,result){
         			 if(success){
         				 console.log(result);
         				 $state.go('survey'); 

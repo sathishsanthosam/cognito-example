@@ -25,7 +25,7 @@ angular.module('cognito')
         	     //$state.go('survey');
         	  };
         	  $scope.signup = function() {
-        		  $state.go('signup');
+        		  $state.go('userRegistration');
         	  };
         }
     ]);

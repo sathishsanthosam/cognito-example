@@ -6,7 +6,7 @@ angular.module('cognito')
 
         function($rootScope,$state,cognitoService) {
         	
-            this.signup = function signup (postData,callback) {            	
+            this.onRegister = function onRegister (userRegistrationData,callback) {            	
                  
             	    var userPool = cognitoService.getUserPool();
             	    var cognitoUser;
@@ -15,19 +15,19 @@ angular.module('cognito')
             	    
             	    var dataEmail = {
             	        Name : 'email',
-            	        Value : postData.email
+            	        Value : userRegistrationData.email
             	    };
             	    var dataPhoneNumber = {
             	        Name : 'phone_number',
-            	        Value :  postData.phone
+            	        Value :  userRegistrationData.phone
             	    };
             	    var attributeEmail = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataEmail);
-            	    //var attributePhoneNumber = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataPhoneNumber);
+            	    var attributePhoneNumber = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataPhoneNumber);
 
             	    attributeList.push(attributeEmail);
-            	    //attributeList.push(attributePhoneNumber);
+            	    attributeList.push(attributePhoneNumber);
 
-            	    userPool.signUp(postData.name, postData.password, attributeList, null, function(err, result){
+            	    userPool.signUp(userRegistrationData.name, userRegistrationData.password, attributeList, null, function(err, result){
             	        if (err) {
             	        	callback(false,err);
             	        }
