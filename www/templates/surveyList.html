@@ -1,14 +1,14 @@
 <ion-view view-title="Survey">
-    <ion-content>
+    <ion-content class="survey-list">
         <div class="row header">
-          <div class="col">Survey Timestamp</div>
-          <div class="col">Survey Type</div>
-          <div class="col">Survey Answer</div>
+          <div class="col col-40">Survey Timestamp</div>
+          <div class="col col-30">Survey Type</div>
+          <div class="col col-30">Survey Answer</div>
         </div>
         <div class="row" ng-repeat="data in surveys">
-          <div class="col">{{data.survey_creation_date}}</div>
-          <div class="col">{{data.survey_type}}</div>
-          <div class="col">{{data.survey_data}}</div>          
+          <div class="col col-40" ng-class="{'row-last-col-align' : $last}">{{data.survey_creation_date | date : 'short'}}</div>
+          <div class="col col-30" ng-class="{'row-last-col-align' : $last}">{{data.survey_type}}</div>
+          <div class="col col-30" ng-class="{'row-last-col-align' : $last}">{{data.survey_data}}</div>
         </div>
         <button class="button button-block button-calm" ng-click="add()">Add</button>
     </ion-content>

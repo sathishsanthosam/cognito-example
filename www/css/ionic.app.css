@@ -9825,3 +9825,24 @@ a.button {
 
 .login-styles .button-align {
   border-radius: 15px !important; }
+
+.survey-list .header .col {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600; }
+
+.survey-list .col {
+  border: solid 1px grey;
+  border-bottom-style: none;
+  border-right-style: none; }
+
+.survey-list .col:last-child {
+  border-right: solid 1px grey; }
+
+.survey-list .row:nth-child(even) {
+  background-color: #f2f2f2; }
+
+.survey-list .row-last-col-align {
+  border-bottom: solid 1px grey !important; }
