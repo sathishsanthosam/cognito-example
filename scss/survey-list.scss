@@ -16,11 +16,20 @@
     border-right: solid 1px grey;
   }
 
-  .row:nth-child(even){
+  .row:nth-child(even) .col{
     background-color: #f2f2f2
   }
 
   .row-last-col-align {
     border-bottom: solid 1px grey !important;
+  }
+
+  .add-icon-align {
+    position: relative;
+    top: 2px;
+  }
+  .add-button-align {
+    border-radius: 15px !important;
+    font-size: 1.5rem;
   }
 }

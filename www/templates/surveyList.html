@@ -10,6 +10,11 @@
           <div class="col col-30" ng-class="{'row-last-col-align' : $last}">{{data.survey_type}}</div>
           <div class="col col-30" ng-class="{'row-last-col-align' : $last}">{{data.survey_data}}</div>
         </div>
-        <button class="button button-block button-calm" ng-click="add()">Add</button>
+        <div class="row">
+            <button class="button button-block button-calm add-button-align" ng-click="add()">
+                <i class="icon icon ion-plus-circled add-icon-align"></i>
+                Add</button>
+        </div>
+
     </ion-content>
   </ion-view>

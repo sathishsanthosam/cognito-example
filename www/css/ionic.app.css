@@ -9841,8 +9841,16 @@ a.button {
 .survey-list .col:last-child {
   border-right: solid 1px grey; }
 
-.survey-list .row:nth-child(even) {
+.survey-list .row:nth-child(even) .col {
   background-color: #f2f2f2; }
 
 .survey-list .row-last-col-align {
   border-bottom: solid 1px grey !important; }
+
+.survey-list .add-icon-align {
+  position: relative;
+  top: 2px; }
+
+.survey-list .add-button-align {
+  border-radius: 15px !important;
+  font-size: 1.5rem; }
