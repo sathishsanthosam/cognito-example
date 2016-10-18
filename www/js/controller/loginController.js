@@ -15,8 +15,7 @@ angular.module('cognito')
         	 $scope.data = {};
         	 $scope.login = function() {
         		 var ret = loginService.login($scope.data.username, $scope.data.password,function(success,result){
-        			 if(success){
-        				 console.log(result);
+        			 if(success){        				 
         				 $state.go('survey'); 
         			 }else{
         				 console.log(result);

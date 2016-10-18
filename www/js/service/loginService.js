@@ -23,18 +23,17 @@ angular.module('cognito')
                 };
 
                 console.log("Authenticating the user");
-                var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
-                console.log(AWS.config);
+                var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);                
                 cognitoUser.authenticateUser(authenticationDetails, {
-                  onSuccess: function (result) {
-                	  console.log(result);
-                	  callback(true,result);
-                    //callback.cognitoCallback(null, result);
+                  onSuccess: function (result) {  
+                    $rootScope.userInfo = {};
+                    $rootScope.userInfo.userName = username;         	  
+                    cognitoService.addCognitoCredentials(result.idToken.jwtToken);
+                    callback(true,result);
                   },
                   onFailure: function (err) {
                 	  console.log(err);
-                	  callback(false,err);
-                    //callback.cognitoCallback(err.message, null);
+                	  callback(false,err);                    
                   },
                 });
             };

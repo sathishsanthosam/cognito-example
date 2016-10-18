@@ -15,7 +15,7 @@ angular.module('cognito')
         	 $scope.data = {};
         	 $scope.data.currentDate = new Date().toJSON();
         	 $scope.submit = function() {
-        		 dynamoDbService.writeData($scope.data);        		 
+        		 dynamoDbService.writeSurvey($scope.data);        		 
         	     $state.go('survey');
         	  };
         }
