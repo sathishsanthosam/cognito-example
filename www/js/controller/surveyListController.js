@@ -22,7 +22,7 @@ angular.module('cognito')
                      //$scope.$apply();
                      console.log($scope.surveys[0].survey_type);
                 }, function (error) {
-                     console.log("Error while api call!!!");
+                     console.log("Error while api call!!!") ;
                      $rootScope.$broadcast('loading:hide');
                  });
                 $scope.add = function() {

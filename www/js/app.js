@@ -44,16 +44,19 @@ angular.module('cognito', ['ionic'])
     })
     .state('survey', {
         url: '/survey',
+        cache: false,
         templateUrl: 'templates/surveyList.html',
         controller: 'surveyListController'
     })
     .state('userRegistration', {
         url: '/userRegistration',
+        cache: false,
         templateUrl: 'templates/userRegistration.html',
         controller: 'userRegistrationController'
     })
     .state('addSurvey', {
         url: '/addSurvey',
+        cache: false,
         templateUrl: 'templates/addSurvey.html',
         controller: 'addSurveyController'
     })
