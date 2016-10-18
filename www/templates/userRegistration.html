@@ -1,23 +1,25 @@
 <ion-view view-title="Create account">
-    <ion-content>
+    <ion-content class="create-account">
      	<div class="list list-inset">
-          <label class="item item-input">
-          	  <span class="input-label">Name</span>
-              <input type="text" ng-model="data.name">
+          <label class="item item-input text-box-align">
+              <input type="text" ng-model="data.name" placeholder="Name">
           </label>
-          <label class="item item-input">
-          	  <span class="input-label">Email</span>
-              <input type="text" ng-model="data.email">
+          <label class="item item-input text-box-align">
+              <input type="text" ng-model="data.email" placeholder="Email ID">
           </label>
-          <label class="item item-input">
-          	  <span class="input-label">Phone</span>
-              <input type="text" ng-model="data.phone">
+          <label class="item item-input text-box-align">
+              <input type="text" ng-model="data.phone" placeholder="Phone Number">
           </label>
-          <label class="item item-input">
-          	  <span class="input-label">Password</span>
-              <input type="password" ng-model="data.password">
+          <label class="item item-input text-box-align">
+              <input type="password" ng-model="data.password" placeholder="Password">
           </label>
+
+          <button class="button button-block button-calm create-button-align" ng-click="onRegister()">
+              <i class="icon icon ion-person-add create-button-icon-align"></i>
+              Create account
+          </button>
+
       </div>
-      <button class="button button-block button-calm" ng-click="onRegister()">Create account</button>
+
     </ion-content>
   </ion-view>

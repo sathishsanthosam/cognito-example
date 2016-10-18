@@ -9854,3 +9854,17 @@ a.button {
 .survey-list .add-button-align {
   border-radius: 15px !important;
   font-size: 1.5rem; }
+
+.create-account .text-box-align {
+  margin-bottom: 0.6rem !important;
+  border-radius: 1rem !important;
+  border: 0.14rem solid gray !important; }
+
+.create-account .create-button-align {
+  border-radius: 15px !important;
+  font-size: 1.5rem; }
+
+.create-account .create-button-icon-align {
+  padding: 7px;
+  position: relative;
+  top: 2px; }
