@@ -13,18 +13,17 @@ angular.module('cognito')
                   $state,
                   dynamoDbService) {
 
-                      function init(){                       
-                         $scope.surveys = [];
-                        dynamoDbService.readSurveyByUserId('',function(surveyData){
-                                $scope.surveys = surveyData;   
-                                //console.log(surveyData[0].survey_creation_date);                              
-                        });                        
-                        $scope.add = function() {
-                            $state.go('newSurvey');
-                        }; 
-                    };
+            $scope.init = function(){
+                 $scope.surveys = [];
+                 dynamoDbService.readSurveyByUserId('',function(surveyData){
+                     $scope.surveys = surveyData;
+                });
+                $scope.add = function() {
+                    $state.go('newSurvey');
+                };
+            };
 
-                    init();
+            $scope.init();
              
         }
     ]);
