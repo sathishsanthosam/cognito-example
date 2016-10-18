@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cognito')
-    .controller('newSurveyController',
+    .controller('addSurveyController',
     [
         '$rootScope',
         '$scope',

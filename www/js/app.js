@@ -44,18 +44,18 @@ angular.module('cognito', ['ionic'])
     })
     .state('survey', {
         url: '/survey',
-        templateUrl: 'templates/survey.html',
-        controller: 'surveyController'
+        templateUrl: 'templates/surveyList.html',
+        controller: 'surveyListController'
     })
     .state('userRegistration', {
         url: '/userRegistration',
         templateUrl: 'templates/userRegistration.html',
         controller: 'userRegistrationController'
     })
-    .state('newSurvey', {
-        url: '/newSurvey',
-        templateUrl: 'templates/newSurvey.html',
-        controller: 'newSurveyController'
+    .state('addSurvey', {
+        url: '/addSurvey',
+        templateUrl: 'templates/addSurvey.html',
+        controller: 'addSurveyController'
     })
     ;
 
