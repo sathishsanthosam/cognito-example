@@ -15,8 +15,10 @@ angular.module('cognito')
 
             $scope.init = function(){
                  $scope.surveys = [];
+                 $rootScope.$broadcast('loading:show');
                  dynamoDbService.readSurveyByUserId('',function(surveyData){
                      $scope.surveys = surveyData;
+                     $rootScope.$broadcast('loading:hide');
                 });
                 $scope.add = function() {
                     $state.go('newSurvey');
