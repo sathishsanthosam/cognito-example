@@ -19,9 +19,12 @@ angular.module('cognito')
                  dynamoDbService.readSurveyByUserId('',function(surveyData){
                      $scope.surveys = surveyData;
                      $rootScope.$broadcast('loading:hide');
-                     $scope.$apply(); 
+                     //$scope.$apply();
                      console.log($scope.surveys[0].survey_type);
-                });
+                }, function (error) {
+                     console.log("Error while api call!!!");
+                     $rootScope.$broadcast('loading:hide');
+                 });
                 $scope.add = function() {
                     $state.go('addSurvey');
                 };
