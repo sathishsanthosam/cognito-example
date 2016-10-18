@@ -33,7 +33,6 @@ angular.module('cognito')
                 var DDB = new AWS.DynamoDB({
                 params: {TableName: 'survey'}
                 });
-
                 // Write the item to the table
                 var itemParams =
                 {
@@ -41,14 +40,17 @@ angular.module('cognito')
                         user_id: {S: AWS.config.credentials.params.IdentityId},
                         survey_creation_date: {S: postData.currentDate},
                         survey_type: {S: postData.type},
-                        survey_data : {S : postData.answer},
+                        survey_data : {L : this.generateDynamoDbDataType(JSON.parse(postData.answer))},
                         survey_id: {S : this.getUUId()}
                     }
                 };
                 console.log('item params',itemParams);
+            
                 DDB.putItem(itemParams, function (result) {
                     console.log(result);
                 });
+                
+                
             };
 
             this.getUUId = function generateUUID() {
@@ -59,6 +61,22 @@ angular.module('cognito')
                     return (c=='x' ? r : (r&0x3|0x8)).toString(16);
                 });
                 return uuid;
+            };
+
+            this.generateDynamoDbDataType = function generateDynamoDbDataType(surveyData){
+                var attr = DynamoDbDataTypes.AttributeValue;
+                if(Array.isArray(surveyData)){
+                    var ret = [];
+
+                    for (var i = 0; i < surveyData.length; i++) {
+                        var dynamodbData = attr.wrap(surveyData[i]);
+                        ret.push({"M":dynamodbData});
+                    }
+                    return ret;
+                
+                }else if(surveyData instanceof Object){
+                    return attr.wrap(surveyData);
+                }
             };
 
 
