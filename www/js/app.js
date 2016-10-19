@@ -60,6 +60,18 @@ angular.module('cognito', ['ionic'])
         templateUrl: 'templates/addSurvey.html',
         controller: 'addSurveyController'
     })
+    .state('profile', {
+        url: '/profile',
+        cache: false,
+        templateUrl: 'templates/profile.html',
+        controller: 'profileController'
+    })
+    .state('resetPassword', {
+        url: '/resetPassword',
+        cache: false,
+        templateUrl: 'templates/resetPassword.html',
+        controller: 'resetPasswordController'
+    })
     ;
 
     // if none of the above states are matched, use this as the fallback

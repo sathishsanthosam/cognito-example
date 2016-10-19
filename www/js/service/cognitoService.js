@@ -52,29 +52,18 @@ angular.module('cognito')
 				});
         	}; 
 			
-			this.addCognitoCredentials = function addCognitoCredentials(idToken){
-				console.log('Id Token',idToken);
+			this.addCognitoCredentials = function addCognitoCredentials(idToken){				
 				var params = this.getCognitoParametersForIdConsolidation(idToken);
 
 				AWS.config.credentials = new AWS.CognitoIdentityCredentials(params);
 				AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials(params);
-
-				AWS.config.credentials.get(function (err) {
-					if (!err) {
-						// var id = AWS.config.credentials.identityId;
-						console.log('Credebtials Success');
-					}else{
-						console.log('Credebtials Error',err);
-					}
-				});
 			};
 
 
 			this.getCognitoParametersForIdConsolidation = function getCognitoParametersForIdConsolidation(idToken){				
 				var url = 'cognito-idp.' + conf.REGION.toLowerCase() + '.amazonaws.com/' + conf.USER_POOL_ID;
 				var logins = [];
-				logins[url] = idToken;
-				console.log('Logins',logins);
+				logins[url] = idToken;				
 				var params = {
 					IdentityPoolId: conf.IDENTITY_POOL_ID, /* required */
 					Logins: logins

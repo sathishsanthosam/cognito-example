@@ -2,9 +2,9 @@
 
 angular.module('cognito')
  .service('loginService', [
-        '$rootScope','$state','cognitoService',
+        '$rootScope','$state','cognitoService','profileService',
 
-        function($rootScope,$state,cognitoService) {
+        function($rootScope,$state,cognitoService,profileService) {
         	
             this.login = function  login(username,password,callback) { 
             	
@@ -25,10 +25,9 @@ angular.module('cognito')
                 console.log("Authenticating the user");
                 var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);                
                 cognitoUser.authenticateUser(authenticationDetails, {
-                  onSuccess: function (result) {  
-                    $rootScope.userInfo = {};
-                    $rootScope.userInfo.userName = username;         	  
-                    cognitoService.addCognitoCredentials(result.idToken.jwtToken);
+                  onSuccess: function (result) { 
+                    profileService.setCognitoUser(cognitoUser);    	  
+                    cognitoService.addCognitoCredentials(result.idToken.jwtToken);                    
                     callback(true,result);
                   },
                   onFailure: function (err) {

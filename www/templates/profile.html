@@ -1,0 +1,27 @@
+<ion-view view-title="Profile">
+     <ion-nav-buttons side="right" >
+      <button class="button button-block button-calm button-align" ng-click="resetPassword()">
+        Reset Password
+      </button>
+    </ion-nav-buttons>
+    <ion-content class="create-account">
+     	<div class="list list-inset">
+          <label class="item item-input text-box-align">
+              <input type="text" ng-model="data.name" placeholder="Name" ng-readonly="{{true}}">
+          </label>
+          <label class="item item-input text-box-align">
+              <input type="text" ng-model="data.email" placeholder="Email ID" >
+          </label>
+          <label class="item item-input text-box-align">
+              <input type="text" ng-model="data.phone_number" placeholder="Phone Number" >
+          </label>
+
+          <button class="button button-block button-calm create-button-align" ng-click="updateProfile()">
+              <i class="icon icon ion-edit create-button-icon-align"></i>
+              Update
+          </button>
+
+      </div>
+
+    </ion-content>
+  </ion-view>

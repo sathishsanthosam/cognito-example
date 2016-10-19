@@ -23,7 +23,8 @@ angular.module('cognito')
                     if (err) {
                         console.error("Unable to query the table. Error JSON:", JSON.stringify(err, null, 2));
                     } else {
-                        // print all the movies                        
+                        // print all the movies   
+                        //this.deleteSurvey(data.Items[0]);                     
                         callback(data.Items);
                 }                
              };
@@ -43,8 +44,7 @@ angular.module('cognito')
                         survey_data : {L : this.generateDynamoDbDataType(JSON.parse(postData.answer))},
                         survey_id: {S : this.getUUId()}
                     }
-                };
-                console.log('item params',itemParams);
+                };                
             
                 DDB.putItem(itemParams, function (result) {
                     console.log(result);
@@ -78,6 +78,23 @@ angular.module('cognito')
                     return attr.wrap(surveyData);
                 }
             };
+
+            this.deleteSurvey = function deleteSurvey(surveyData){
+                var params = {
+                    TableName: "survey",
+                    Key: {
+                        survey_id: surveyData.survey_id
+                    }
+                };
+                var docClient = new AWS.DynamoDB.DocumentClient();
+                docClient.delete(params, function(err, data) {
+                    if (err)
+                        console.log(JSON.stringify(err, null, 2));
+                    else
+                        console.log(JSON.stringify(data, null, 2));
+                });
+                
+            }
 
 
         }]);

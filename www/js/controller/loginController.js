@@ -24,6 +24,7 @@ angular.module('cognito')
 						 $rootScope.$broadcast('loading:hide');
         			 }else{
         				 console.log(result);
+						  $rootScope.$broadcast('loading:hide');
         			 }
         		 });    		 
         	     //$state.go('survey');
