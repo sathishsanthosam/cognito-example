@@ -34,9 +34,8 @@ angular.module('cognito')
             	        cognitoUser = result.user;
 						profileService.setCognitoUser(cognitoUser); 
             	        console.log('user name is ' + cognitoUser.getUsername());
-						cognitoService.addCognitoCredentials(result.idToken.jwtToken,function(){
-							callback(true,result);
-						});             	        
+						callback(true,result);
+						            	        
             	    });
             };
 
@@ -52,14 +51,7 @@ angular.module('cognito')
 					if (err) {
 						callback(false, err);
 					} else {
-						cognitoService.getIdToken(function(idToken){
-							if(idToken == null){
-								callback(false, err);
-							}else{
-								cognitoService.addCognitoCredentials(idToken);                    
-                    			callback(true,result);
-							}
-						});
+						callback(true,result);
 						
 					}
     			});

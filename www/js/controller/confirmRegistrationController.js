@@ -19,7 +19,7 @@ angular.module('cognito')
         		 userRegistrationService.confirmUser($scope.data.name,$scope.data.confirmationCode,function(success,result){
         			 if(success){
         				  $rootScope.$broadcast('loading:hide');
-        				 $state.go('survey'); 
+        				 $state.go('login'); 
         			 }else{
                           $rootScope.$broadcast('loading:hide');
         				 console.log(result);
