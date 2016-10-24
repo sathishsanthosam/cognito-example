@@ -13,9 +13,10 @@ angular.module('cognito')
                     IndexName: "user_id-index",
                     KeyConditionExpression: "user_id = :user_id",
                     ExpressionAttributeValues: {
-                        ":user_id": AWS.config.credentials.params.IdentityId
+                        ":user_id": AWS.config.credentials.identityId
                     }                
                 };
+                console.log('params',params);
                 var docClient = new AWS.DynamoDB.DocumentClient();
                 docClient.query(params, onQuery);
 

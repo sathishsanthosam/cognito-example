@@ -27,8 +27,10 @@ angular.module('cognito')
                 cognitoUser.authenticateUser(authenticationDetails, {
                   onSuccess: function (result) { 
                     profileService.setCognitoUser(cognitoUser);    	  
-                    cognitoService.addCognitoCredentials(result.idToken.jwtToken);                    
-                    callback(true,result);
+                    cognitoService.addCognitoCredentials(result.idToken.jwtToken,function(){
+                      callback(true,result);
+                    });                    
+                    
                   },
                   onFailure: function (err) {
                 	  console.log(err);

@@ -54,6 +54,12 @@ angular.module('cognito', ['ionic'])
         templateUrl: 'templates/userRegistration.html',
         controller: 'userRegistrationController'
     })
+    .state('confirmRegistration', {
+        url: '/confirmRegistration/:username',
+        cache: false,
+        templateUrl: 'templates/confirmRegistration.html',
+        controller: 'confirmRegistrationController'
+    })
     .state('addSurvey', {
         url: '/addSurvey',
         cache: false,

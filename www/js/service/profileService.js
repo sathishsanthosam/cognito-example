@@ -58,5 +58,10 @@ angular.module('cognito')
 				});
 			};
 
+			this.logout = function logout(){
+				cognitoUser.signOut();
+				console.log('User has been Logged off.');
+			};
+
 			
         }]);

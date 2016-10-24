@@ -52,11 +52,20 @@ angular.module('cognito')
 				});
         	}; 
 			
-			this.addCognitoCredentials = function addCognitoCredentials(idToken){				
+			this.addCognitoCredentials = function addCognitoCredentials(idToken,callback){				
 				var params = this.getCognitoParametersForIdConsolidation(idToken);
 
 				AWS.config.credentials = new AWS.CognitoIdentityCredentials(params);
 				AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials(params);
+				AWS.config.credentials.get(function (err) {
+					if (!err) {
+						var id = AWS.config.credentials.identityId;
+						console.log(id);
+					}else{
+						console.log(err);
+					}
+					callback();
+				});
 			};
 
 
@@ -72,5 +81,4 @@ angular.module('cognito')
     			return params;
 			};
 
-			
         }]);

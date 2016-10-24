@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cognito')
-    .controller('userRegistrationController',
+    .controller('confirmRegistrationController',
     [
         '$rootScope',
         '$scope',
@@ -13,14 +13,13 @@ angular.module('cognito')
                   $state,
                   userRegistrationService) {
         	 $scope.data = {};
-        	 $scope.onRegister = function() {
+             $scope.data.name = $state.params.username;
+        	 $scope.onConfirm = function() {
                   $rootScope.$broadcast('loading:show');
-        		 userRegistrationService.onRegister($scope.data,function(success,result){
+        		 userRegistrationService.confirmUser($scope.data.name,$scope.data.confirmationCode,function(success,result){
         			 if(success){
-                          $rootScope.$broadcast('loading:hide');
-        				 $state.go('confirmRegistration',{
-                             'username': $scope.data.name
-                         }); 
+        				  $rootScope.$broadcast('loading:hide');
+        				 $state.go('survey'); 
         			 }else{
                           $rootScope.$broadcast('loading:hide');
         				 console.log(result);

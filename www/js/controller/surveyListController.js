@@ -7,11 +7,13 @@ angular.module('cognito')
         '$scope',
         '$state',
         'dynamoDbService',
+        'profileService',
 
         function ($rootScope,
                   $scope,
                   $state,
-                  dynamoDbService) {
+                  dynamoDbService,
+                  profileService) {
 
             $scope.init = function(){
                  $scope.surveys = [];
@@ -29,6 +31,11 @@ angular.module('cognito')
 
                 $scope.profile = function() {
                     $state.go('profile');
+                };
+
+                 $scope.logout = function() {
+                     profileService.logout();
+                     $state.go('login');                    
                 };
             };
 

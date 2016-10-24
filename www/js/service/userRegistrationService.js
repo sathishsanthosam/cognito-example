@@ -2,9 +2,9 @@
 
 angular.module('cognito')
  .service('userRegistrationService', [
-        '$rootScope','$state','cognitoService',
+        '$rootScope','$state','cognitoService','profileService',
 
-        function($rootScope,$state,cognitoService) {
+        function($rootScope,$state,cognitoService,profileService) {
         	
             this.onRegister = function onRegister (userRegistrationData,callback) {            	
                  
@@ -32,10 +32,39 @@ angular.module('cognito')
             	        	callback(false,err);
             	        }
             	        cognitoUser = result.user;
+						profileService.setCognitoUser(cognitoUser); 
             	        console.log('user name is ' + cognitoUser.getUsername());
-            	        callback(true,result);
+						cognitoService.addCognitoCredentials(result.idToken.jwtToken,function(){
+							callback(true,result);
+						});             	        
             	    });
             };
+
+			this.confirmUser = function confirmUser(userName,confirmationCode,callback){
+				var userData = {
+				Username: userName,
+				Pool: cognitoService.getUserPool()
+				};
+
+				var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
+
+				cognitoUser.confirmRegistration(confirmationCode, true, function (err, result) {
+					if (err) {
+						callback(false, err);
+					} else {
+						cognitoService.getIdToken(function(idToken){
+							if(idToken == null){
+								callback(false, err);
+							}else{
+								cognitoService.addCognitoCredentials(idToken);                    
+                    			callback(true,result);
+							}
+						});
+						
+					}
+    			});
+
+			};
 
 
         }]);
