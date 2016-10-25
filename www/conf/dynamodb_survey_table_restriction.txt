@@ -1,0 +1,24 @@
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:Query",
+                "dynamodb:PutItem"
+            ],
+            "Resource": [
+                "arn:aws:dynamodb:us-west-2:408112017706:table/survey",
+                "arn:aws:dynamodb:us-west-2:408112017706:table/survey/index/user_id-index"
+            ],
+            "Condition": {
+                "ForAllValues:StringEquals": {
+                    "dynamodb:LeadingKeys": [
+                        "${cognito-identity.amazonaws.com:sub}"
+                    ]
+                }
+            }
+        }
+    ]
+}
